@@ -92,6 +92,16 @@ jobs:
             DEPLOY_RELEASE: ${{ matrix.tag }}
 
       - if: (github.event_name != 'pull_request')
+        name: Upload binaries as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: freecad_binaries
+          path: |
+            ${{ matrix.bundle_dir }}/FreeCAD_*.7z
+            ${{ matrix.bundle_dir }}/*.7z-SHA256.txt
+
+          
+      - if: (github.event_name != 'pull_request')
         name: Upload binaries to release and remove old ones
         working-directory: ${{ matrix.bundle_dir }}
         env:
