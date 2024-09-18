@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: create source package with submodules and version info
         run: |
-          git clone https://github.com/FreeCAD/FreeCAD
+          git clone https://github.com/magic-visual-plus/FreeCAD
           touch freecad_version.txt
           wget https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${GITHUB_REF##*/}/make_version_file.py
           wget https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${GITHUB_REF##*/}/disable_git_info.patch
